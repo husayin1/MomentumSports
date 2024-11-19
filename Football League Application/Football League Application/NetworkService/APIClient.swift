@@ -26,9 +26,9 @@ class APIClient: APIClientProtocol {
                 print("Result: ", response.result)
                 switch response.result {
                 case .success(let model):
+                    print("Success: ")
                     observer.onNext(model)
                     observer.onCompleted()
-                
                 case .failure(let error):
                     print("Error: ", error.localizedDescription)
                     

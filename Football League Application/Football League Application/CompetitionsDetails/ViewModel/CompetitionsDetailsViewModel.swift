@@ -11,9 +11,10 @@ import RxSwift
 class CompetitionsDetailsViewModel {
     
     let remoteService = RemoteDataSoure(networkService: APIClient.shared)
-    let competitions: PublishSubject<CompetitionsDetailsResponse> = PublishSubject()
+    let competitionsDetails: PublishSubject<[Match]> = PublishSubject()
     let error: PublishSubject<String> = PublishSubject()
-    
+    let headerDetails: PublishSubject<CompetitionsDetailsResponse> = PublishSubject()
+
     private let disposeBag = DisposeBag()
     
     func getCompetitionsDetailsBy(id: Int) {
@@ -24,12 +25,13 @@ class CompetitionsDetailsViewModel {
             onNext: { [weak self] competitionDetailsResponse in
                 // Handle success
                 print("Competitions received: \(competitionDetailsResponse)")
-                self?.competitions.onNext(competitionDetailsResponse)
+                self?.headerDetails.onNext(competitionDetailsResponse)
+                self?.competitionsDetails.onNext(competitionDetailsResponse.matches!)
             },
             onError: { [weak self] error in
                 // Handle error
                 if let networkError = error as? NetworkError {
-                    print("Error: \(networkError.message)")
+                    print("Error in here: \(networkError.message)")
                     self?.error.onNext(networkError.message)
                 } else {
                     print("Unexpected error: \(error)")

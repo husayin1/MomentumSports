@@ -12,6 +12,7 @@ import RxCocoa
 class AllCompetitionsViewController: UIViewController {
     @IBOutlet weak var competitionsTableView: UITableView!
     
+    
     private let viewModel = AllCompetitionsViewModel()
     private let disposeBag = DisposeBag()
     
@@ -56,7 +57,8 @@ class AllCompetitionsViewController: UIViewController {
     
     private func navigateToCompetitionDetails(with competition: Competition) {
         let controller = CompetitionsDetailsViewController.instantiate()
-        controller.competitionId = competition.id ?? 100
+        controller.competitionId = competition.id ?? 2000
+        controller.title = competition.type
         navigationController?.pushViewController(controller, animated: true)
     }
     
