@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  AllCompetitionsViewController.swift
 //  Football League Application
 //
 //  Created by husayn on 18/11/2024.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class AllCompetitionsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
