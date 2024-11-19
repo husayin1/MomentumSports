@@ -25,6 +25,9 @@ class AllCompetitionsViewController: UIViewController {
         
         // Fetch competitions data
         viewModel.getCompetitions()
+        
+        handleCellTap() // Handle cell selection
+        
     }
     
     private func bindCompetitions() {
@@ -39,8 +42,23 @@ class AllCompetitionsViewController: UIViewController {
     private func registerTableViewCell() {
         let nib = UINib(nibName: AllCompetitionsTableViewCell.identifier, bundle: nil)
         competitionsTableView.register(nib, forCellReuseIdentifier: AllCompetitionsTableViewCell.identifier)
-       }
+    }
     
+    private func handleCellTap() {
+        competitionsTableView.rx.modelSelected(Competition.self)
+            .subscribe(onNext: { [weak self] competition in
+                guard let self = self else { return }
+                print("Cell Tapped: \(competition.id)")
+                self.navigateToCompetitionDetails(with: competition)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func navigateToCompetitionDetails(with competition: Competition) {
+        let controller = CompetitionsDetailsViewController.instantiate()
+        controller.competitionId = competition.id ?? 100
+        navigationController?.pushViewController(controller, animated: true)
+    }
     
 }
 

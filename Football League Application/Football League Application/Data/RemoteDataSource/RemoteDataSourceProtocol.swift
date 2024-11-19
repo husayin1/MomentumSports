@@ -10,4 +10,5 @@ import RxSwift
 
 protocol RemoteDataSourceProtocol{
     func getCompetitions() -> Observable<CompetitionResponse>
+    func getCompetitionsDetails(by id: Int) -> Observable<CompetitionsDetailsResponse>
 }

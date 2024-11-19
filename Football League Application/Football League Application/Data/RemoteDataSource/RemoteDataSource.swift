@@ -19,4 +19,10 @@ class RemoteDataSoure: RemoteDataSourceProtocol {
         print("Performing get competitions")
         return apiClient.performRequest(route: .competitions)
     }
+    
+    func getCompetitionsDetails(by id: Int) -> RxSwift.Observable<CompetitionsDetailsResponse> {
+        print("Performing get Competitiong Details ...")
+        return apiClient.performRequest(route: .competitionDetails(competitionId: id))
+    }
+    
 }

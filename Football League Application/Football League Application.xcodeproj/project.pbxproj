@@ -33,6 +33,9 @@
 		566B8B8A2CEC38E7005EFE00 /* AllCompetitionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 566B8B882CEC38E7005EFE00 /* AllCompetitionsTableViewCell.xib */; };
 		56F735DF2CECEE52004813FC /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F735DE2CECEE52004813FC /* UIView+Extensions.swift */; };
 		56F735E12CECEE79004813FC /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F735E02CECEE79004813FC /* UIViewController+Extensions.swift */; };
+		56F735E72CECFAF4004813FC /* CompetitionsDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F735E62CECFAF4004813FC /* CompetitionsDetailsModel.swift */; };
+		56F735E92CECFCF0004813FC /* CompetitionsDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F735E82CECFCF0004813FC /* CompetitionsDetailsViewModel.swift */; };
+		56F735EB2CECFD7F004813FC /* CompetitionsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F735EA2CECFD7F004813FC /* CompetitionsDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +63,9 @@
 		566B8B882CEC38E7005EFE00 /* AllCompetitionsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AllCompetitionsTableViewCell.xib; path = "Football League Application/AllCompetitions/View/AllCompetitionsTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
 		56F735DE2CECEE52004813FC /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		56F735E02CECEE79004813FC /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		56F735E62CECFAF4004813FC /* CompetitionsDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionsDetailsModel.swift; sourceTree = "<group>"; };
+		56F735E82CECFCF0004813FC /* CompetitionsDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionsDetailsViewModel.swift; sourceTree = "<group>"; };
+		56F735EA2CECFD7F004813FC /* CompetitionsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionsDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +153,7 @@
 				565E82D12CECD506000D8FD7 /* Data */,
 				565E82C32CECCA93000D8FD7 /* NetworkService */,
 				565E82C02CECBB32000D8FD7 /* Constants */,
+				56F735E22CECF7E6004813FC /* CompetitionsDetails */,
 				566B8B772CEC300D005EFE00 /* AllCompetitions */,
 				566B8B762CEC2FEC005EFE00 /* App */,
 				566B8B642CEC1043005EFE00 /* Main.storyboard */,
@@ -209,6 +216,48 @@
 				566B8B882CEC38E7005EFE00 /* AllCompetitionsTableViewCell.xib */,
 			);
 			path = AllCompetitionsTableViewCell;
+			sourceTree = "<group>";
+		};
+		56F735E22CECF7E6004813FC /* CompetitionsDetails */ = {
+			isa = PBXGroup;
+			children = (
+				56F735E52CECF7FB004813FC /* ViewModel */,
+				56F735E42CECF7F8004813FC /* View */,
+				56F735E32CECF7F2004813FC /* Model */,
+			);
+			path = CompetitionsDetails;
+			sourceTree = "<group>";
+		};
+		56F735E32CECF7F2004813FC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				56F735E62CECFAF4004813FC /* CompetitionsDetailsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		56F735E42CECF7F8004813FC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				56F735EC2CED0521004813FC /* CompetitionsDetailsTableViewCell */,
+				56F735EA2CECFD7F004813FC /* CompetitionsDetailsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		56F735E52CECF7FB004813FC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				56F735E82CECFCF0004813FC /* CompetitionsDetailsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		56F735EC2CED0521004813FC /* CompetitionsDetailsTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CompetitionsDetailsTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,6 +345,7 @@
 			files = (
 				565E82DC2CECE066000D8FD7 /* String+Extension.swift in Sources */,
 				566B8B7C2CEC30E7005EFE00 /* AllCompetitionsModel.swift in Sources */,
+				56F735EB2CECFD7F004813FC /* CompetitionsDetailsViewController.swift in Sources */,
 				565E82D52CECD554000D8FD7 /* RemoteDataSource.swift in Sources */,
 				565E82D02CECD2EB000D8FD7 /* APIClientProtocol.swift in Sources */,
 				56F735E12CECEE79004813FC /* UIViewController+Extensions.swift in Sources */,
@@ -307,10 +357,12 @@
 				566B8B7E2CEC32D6005EFE00 /* AllCompetitionsViewModel.swift in Sources */,
 				565E82C92CECCB57000D8FD7 /* APIClient.swift in Sources */,
 				565E82CC2CECCF64000D8FD7 /* APIResources.swift in Sources */,
+				56F735E92CECFCF0004813FC /* CompetitionsDetailsViewModel.swift in Sources */,
 				566B8B632CEC1043005EFE00 /* AllCompetitionsViewController.swift in Sources */,
 				566B8B5F2CEC1043005EFE00 /* AppDelegate.swift in Sources */,
 				566B8B892CEC38E7005EFE00 /* AllCompetitionsTableViewCell.swift in Sources */,
 				566B8B612CEC1043005EFE00 /* SceneDelegate.swift in Sources */,
+				56F735E72CECFAF4004813FC /* CompetitionsDetailsModel.swift in Sources */,
 				565E82C72CECCB15000D8FD7 /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

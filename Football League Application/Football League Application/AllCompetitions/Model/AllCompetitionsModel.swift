@@ -7,13 +7,14 @@
 
 import Foundation
 
-
+// MARK: - CompetitionsResponse Model
 struct CompetitionResponse: Decodable {
     let count: Int
     let filters: [String: String]
     let competitions: [Competition]
 }
 
+// MARK: - Competitions Model
 struct Competition: Decodable {
     let id: Int?
     let area: Area?
@@ -27,14 +28,14 @@ struct Competition: Decodable {
     let lastUpdated: String?
 }
 
-
+// MARK: - CompetitionsArea Model
 struct Area: Decodable {
     let id: Int
     let name: String
     let code: String
     let flag: String?
 }
-
+// MARK: - CompetitionsSeason Model
 struct Season: Decodable {
     let id: Int
     let startDate: String
@@ -43,6 +44,7 @@ struct Season: Decodable {
     let winner: Winner?
 }
 
+// MARK: - CompetitionsWinner Model
 struct Winner: Decodable {
     let id: Int
     let name: String

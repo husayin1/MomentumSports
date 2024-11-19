@@ -11,25 +11,26 @@ import Alamofire
 enum APIRouter: URLRequestConvertible {
     
     case competitions
+    case competitionDetails(competitionId: Int)
     
     
     var method: HTTPMethod {
         switch self {
-        case .competitions:
+        case .competitions, .competitionDetails:
             return .get
         }
     }
     
     var encoding: ParameterEncoding {
         switch self {
-        case .competitions:
+        case .competitions, .competitionDetails:
             return URLEncoding(destination: .queryString)
         }
     }
     
     var parameters: [String: Any]? {
         switch self {
-        case .competitions:
+        case .competitions, .competitionDetails:
             return nil
         }
     }
@@ -40,6 +41,15 @@ enum APIRouter: URLRequestConvertible {
         switch self {
         case .competitions:
             return APIResources.competitions.endpoint
+        case .competitionDetails(let id):
+            return APIResources.competitionDetails(id: id).endpoint
+        }
+    }
+    
+    var authorizationHeader: HTTPHeaderField? {
+        switch self {
+        case .competitions, .competitionDetails:
+            return .authorization
         }
     }
     
@@ -47,6 +57,10 @@ enum APIRouter: URLRequestConvertible {
         let url = try Constants.baseUrl.rawValue.asURL()
         var urlRequest = URLRequest(url: url.appendingPathComponent(path))
         urlRequest.httpMethod = method.rawValue
+        urlRequest.setValue(ContentType.any.rawValue, forHTTPHeaderField: HTTPHeaderField.acceptType.rawValue)
+        if let headerField = authorizationHeader {
+            urlRequest.setValue(headerField.token, forHTTPHeaderField: HTTPHeaderField.authorization.rawValue)
+        }
         urlRequest.setValue(ContentType.json.rawValue, forHTTPHeaderField: HTTPHeaderField.contentType.rawValue)
         return try encoding.encode(urlRequest, with: parameters)
     }
