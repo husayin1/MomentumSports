@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="prt-Wf-lja">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="prt-Wf-lja">
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -34,12 +34,15 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="prt-Wf-lja" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="F8C-l0-o3t"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="prt-Wf-lja" secondAttribute="trailing" id="FyS-6g-LD0"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="prt-Wf-lja" secondAttribute="bottom" id="Y0y-PH-2w6"/>
-                            <constraint firstItem="prt-Wf-lja" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oE8-TW-hed"/>
+                            <constraint firstItem="prt-Wf-lja" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="2hV-qW-NJF"/>
+                            <constraint firstItem="prt-Wf-lja" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7x0-F5-OBb"/>
+                            <constraint firstItem="prt-Wf-lja" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="q4V-gj-ewn"/>
+                            <constraint firstItem="prt-Wf-lja" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="sNT-V8-qdE"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="competitionsTableView" destination="prt-Wf-lja" id="Iwk-5g-Xzr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

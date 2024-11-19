@@ -8,32 +8,42 @@
 import Foundation
 
 
-struct CompetetionsResponse: Codable {
+struct CompetitionResponse: Decodable {
     let count: Int
-    let competetions: [Competetion]
+    let filters: [String: String]
+    let competitions: [Competition]
 }
 
-struct Competetion: Codable {
+struct Competition: Decodable {
+    let id: Int?
+    let area: Area?
+    let name: String?
+    let code: String?
+    let type: String?
+    let emblem: String?
+    let plan: String?
+    let currentSeason: Season?
+    let numberOfAvailableSeasons: Int?
+    let lastUpdated: String?
+}
+
+
+struct Area: Decodable {
     let id: Int
-    let area: Area
     let name: String
     let code: String
-    let emblemUrl: String
-    let plan: String
-    let currentSeason: CurrentSeason
-    let numberOfAvailableSeasons: Int
-    let lastUpdated: String
+    let flag: String?
 }
 
-struct Area: Codable {
-    let id: Int
-    let name: String
-    let countryCode: String
-}
-
-struct CurrentSeason: Codable {
+struct Season: Decodable {
     let id: Int
     let startDate: String
     let endDate: String
-    let currentMatchday: Int
+    let currentMatchday: Int?
+    let winner: Winner?
+}
+
+struct Winner: Decodable {
+    let id: Int
+    let name: String
 }
