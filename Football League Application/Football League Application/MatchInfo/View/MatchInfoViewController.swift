@@ -19,12 +19,10 @@ final class MatchInfoViewController: UIViewController {
     //MARK: - Dependencies
     private let viewModel = MatchInfoViewModel(matchService: RemoteDataSoure())
     private let disposeBag = DisposeBag()
-    private let loader = Loader()
     var matchId: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
         getMatchInfo()
         bindViewModel()
     }
@@ -34,9 +32,7 @@ final class MatchInfoViewController: UIViewController {
 
 //MARK: - Setup
 extension MatchInfoViewController {
-    private func setupUI(){
-        loader.attach(to: view)
-    }
+    
     private func setupHeaderView(with match: Match){
         headerSubView.configureView(with: match)
         matchDetailsView.configureView(with: match)
@@ -65,8 +61,8 @@ extension MatchInfoViewController {
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] isLoading in
                 isLoading ?
-                self?.loader.show() :
-                self?.loader.hide()
+                self?.showLoader() :
+                self?.hideLoader()
             })
             .disposed(by: disposeBag)
         

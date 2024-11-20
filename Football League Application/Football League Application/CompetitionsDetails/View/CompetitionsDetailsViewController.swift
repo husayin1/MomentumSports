@@ -17,9 +17,8 @@ final class CompetitionsDetailsViewController: UIViewController {
     @IBOutlet weak var competitionSeasonLabel: UILabel!
     
     // MARK: - Properties
-    private let viewModel = CompetitionsDetailsViewModel(competitionsDetailsService: RemoteDataSoure())
+    private var viewModel = CompetitionsDetailsViewModel(competitionsDetailsService: RemoteDataSoure())
     private let disposeBag = DisposeBag()
-    private let loader = Loader()
     var competitionId: Int?
     
     override func viewDidLoad() {
@@ -39,7 +38,6 @@ extension CompetitionsDetailsViewController {
     private func setupUI() {
         registerTableViewCell()
         competitionsDetailsTableView.tableFooterView = UIView()
-        loader.attach(to: view)
     }
     
     private func registerTableViewCell() {
@@ -89,8 +87,8 @@ extension CompetitionsDetailsViewController {
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] isLoading in
                 isLoading ?
-                self?.loader.show() :
-                self?.loader.hide()
+                self?.showLoader() :
+                self?.hideLoader()
             })
             .disposed(by: disposeBag)
         

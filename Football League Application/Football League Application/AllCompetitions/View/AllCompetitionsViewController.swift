@@ -16,7 +16,6 @@ class AllCompetitionsViewController: UIViewController {
     // MARK: - Dependencies
     private let viewModel = AllCompetitionsViewModel(competitionsService: RemoteDataSoure(), offlineService: CoreDataLocalDataSource())
     private let disposeBag = DisposeBag()
-    private let loader = Loader()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +33,6 @@ extension AllCompetitionsViewController {
     // MARK: - Private Methods
     private func setupUI() {
         registerTableViewCell()
-        loader.attach(to: view)
     }
     
     private func registerTableViewCell() {
@@ -77,8 +75,8 @@ extension AllCompetitionsViewController {
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] isLoading in
                 isLoading ?
-                self?.loader.show() :
-                self?.loader.hide()
+                self?.showLoader() :
+                self?.hideLoader()
             })
             .disposed(by: disposeBag)
         

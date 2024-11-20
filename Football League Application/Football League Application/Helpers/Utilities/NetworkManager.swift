@@ -18,7 +18,6 @@ class NetworkManager{
     @objc private func networkStatusChanged() {
         if isInternetAvailable(){
             print("Internet is connected")
-            showToast(message: "connected to network successfully")
         }else{
             showToast(message: "check internet connection and try again.")
             print("no internet")
