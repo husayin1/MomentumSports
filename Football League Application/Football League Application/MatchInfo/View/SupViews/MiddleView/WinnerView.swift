@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WinnerView: UIView {
+final class WinnerView: UIView {
 
     @IBOutlet weak private var containerView: UIView!
     @IBOutlet weak private var winnerName: UILabel!

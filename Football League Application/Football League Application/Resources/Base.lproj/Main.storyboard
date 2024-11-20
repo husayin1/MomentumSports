@@ -191,21 +191,29 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sFd-Kd-4X8" customClass="WinnerView" customModule="Football_League_Application" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="152" width="377" height="444"/>
+                                                <rect key="frame" x="8" y="152" width="369" height="444"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="444" id="qSz-hu-EKW"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yrY-rN-aT7" customClass="LeagueDetails" customModule="Football_League_Application" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="596" width="393" height="181"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="sFd-Kd-4X8" secondAttribute="trailing" constant="16" id="0o9-9h-ru0"/>
                                             <constraint firstItem="JaG-D4-UUw" firstAttribute="leading" secondItem="qln-f3-q1T" secondAttribute="leading" constant="8" id="63a-xr-4z3"/>
-                                            <constraint firstAttribute="trailing" secondItem="sFd-Kd-4X8" secondAttribute="trailing" constant="8" id="Fwh-Jg-5hS"/>
+                                            <constraint firstAttribute="trailing" secondItem="yrY-rN-aT7" secondAttribute="trailing" id="99U-Fp-0jy"/>
+                                            <constraint firstItem="yrY-rN-aT7" firstAttribute="top" secondItem="sFd-Kd-4X8" secondAttribute="bottom" id="E8B-WX-ziN"/>
                                             <constraint firstItem="sFd-Kd-4X8" firstAttribute="leading" secondItem="qln-f3-q1T" secondAttribute="leading" constant="8" id="GB3-Q3-hcr"/>
                                             <constraint firstAttribute="trailing" secondItem="JaG-D4-UUw" secondAttribute="trailing" constant="8" id="HWd-ZM-nQn"/>
                                             <constraint firstItem="JaG-D4-UUw" firstAttribute="top" secondItem="qln-f3-q1T" secondAttribute="top" constant="8" id="Og9-nV-BdN"/>
                                             <constraint firstItem="JaG-D4-UUw" firstAttribute="top" secondItem="qln-f3-q1T" secondAttribute="top" constant="8" id="cxI-x8-aBh"/>
+                                            <constraint firstAttribute="bottom" secondItem="yrY-rN-aT7" secondAttribute="bottom" constant="16" id="qde-WR-Cdz"/>
+                                            <constraint firstItem="yrY-rN-aT7" firstAttribute="leading" secondItem="qln-f3-q1T" secondAttribute="leading" id="uDL-Ix-Dzz"/>
                                             <constraint firstItem="sFd-Kd-4X8" firstAttribute="top" secondItem="JaG-D4-UUw" secondAttribute="bottom" constant="16" id="yNe-eS-IiU"/>
                                         </constraints>
                                     </view>
@@ -231,6 +239,7 @@
                     </view>
                     <connections>
                         <outlet property="headerSubView" destination="JaG-D4-UUw" id="b2F-TA-rgN"/>
+                        <outlet property="leagueDetailsView" destination="yrY-rN-aT7" id="s77-Wk-FXo"/>
                         <outlet property="matchDetailsView" destination="sFd-Kd-4X8" id="H3D-84-eD1"/>
                     </connections>
                 </viewController>

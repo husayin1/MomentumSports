@@ -9,12 +9,13 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class MatchInfoViewController: UIViewController {
+final class MatchInfoViewController: UIViewController {
     //MARK: - Outlets
     
     @IBOutlet weak var headerSubView: MatchHeaderView!
-    
     @IBOutlet weak var matchDetailsView: WinnerView!
+    @IBOutlet weak var leagueDetailsView: LeagueDetails!
+    
     //MARK: - Dependencies
     private let viewModel = MatchInfoViewModel(matchService: RemoteDataSoure())
     private let disposeBag = DisposeBag()
@@ -39,6 +40,7 @@ extension MatchInfoViewController {
     private func setupHeaderView(with match: Match){
         headerSubView.configureView(with: match)
         matchDetailsView.configureView(with: match)
+        leagueDetailsView.configureView(with: match)
     }
     private func bindViewModel(){
         bindMatchInfo()

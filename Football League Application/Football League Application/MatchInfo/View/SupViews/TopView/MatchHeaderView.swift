@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MatchHeaderView: UIView {
+final class MatchHeaderView: UIView {
     
     //MARK: - Outlets
     @IBOutlet weak var containerView: UIView!

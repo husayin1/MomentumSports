@@ -55,8 +55,8 @@ extension CompetitionsDetailsViewController {
     
     private func handleCellSelection() {
         competitionsDetailsTableView.rx.modelSelected(Match.self)
-            .subscribe(onNext: { [weak self] match in
-                self?.navigateToMatchInfo(match.id ?? 493753)
+            .subscribe(onNext: { [weak self] info in
+                self?.navigateToMatchInfo(match: info)
             })
             .disposed(by: disposeBag)
     }
@@ -119,9 +119,10 @@ extension CompetitionsDetailsViewController {
 
 //MARK: - Navigation Handling
 extension CompetitionsDetailsViewController {
-    private func navigateToMatchInfo(_ matchId: Int) {
+    private func navigateToMatchInfo(match: Match) {
         let controller = MatchInfoViewController.instantiate()
-        controller.matchId = matchId
+        controller.matchId = match.id ?? 493753
+        controller.title = (match.area?.name ?? "N/A ") + " " + (match.competition?.type ?? "N/A")
         navigationController?.pushViewController(controller, animated: true)
     }
 }

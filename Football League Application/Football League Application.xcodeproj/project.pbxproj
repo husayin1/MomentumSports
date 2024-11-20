@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5622AE3E2CEE355E005A75D3 /* LeagueDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5622AE3D2CEE355E005A75D3 /* LeagueDetails.xib */; };
+		5622AE402CEE37E4005A75D3 /* LeagueDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622AE3F2CEE37E4005A75D3 /* LeagueDetails.swift */; };
 		563157722CED73740094DB26 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563157712CED73740094DB26 /* ImageHelper.swift */; };
 		563157742CED7F000094DB26 /* Error+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563157732CED7F000094DB26 /* Error+Extensions.swift */; };
 		563157782CED80660094DB26 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563157772CED80660094DB26 /* Loader.swift */; };
@@ -54,6 +56,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5622AE3D2CEE355E005A75D3 /* LeagueDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeagueDetails.xib; sourceTree = "<group>"; };
+		5622AE3F2CEE37E4005A75D3 /* LeagueDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueDetails.swift; sourceTree = "<group>"; };
 		563157712CED73740094DB26 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		563157732CED7F000094DB26 /* Error+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extensions.swift"; sourceTree = "<group>"; };
 		563157772CED80660094DB26 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
@@ -344,6 +348,8 @@
 		56CB36102CEE2C85009F7B1F /* BottomView */ = {
 			isa = PBXGroup;
 			children = (
+				5622AE3D2CEE355E005A75D3 /* LeagueDetails.xib */,
+				5622AE3F2CEE37E4005A75D3 /* LeagueDetails.swift */,
 			);
 			path = BottomView;
 			sourceTree = "<group>";
@@ -466,6 +472,7 @@
 				566B8B6E2CEC1044005EFE00 /* LaunchScreen.storyboard in Resources */,
 				566B8B6B2CEC1044005EFE00 /* Assets.xcassets in Resources */,
 				56F735F02CED077D004813FC /* CompetitionsDetailsTableViewCell.xib in Resources */,
+				5622AE3E2CEE355E005A75D3 /* LeagueDetails.xib in Resources */,
 				56CB36122CEE2C9C009F7B1F /* WinnerView.xib in Resources */,
 				56CB360B2CEE0E31009F7B1F /* MatchHeaderView.xib in Resources */,
 				566B8B8A2CEC38E7005EFE00 /* AllCompetitionsTableViewCell.xib in Resources */,
@@ -492,6 +499,7 @@
 				569659942CEDF61C0022D114 /* MatchInfoViewModel.swift in Sources */,
 				565E82D32CECD526000D8FD7 /* RemoteDataSourceProtocol.swift in Sources */,
 				565E82C22CECBB3B000D8FD7 /* Constatns.swift in Sources */,
+				5622AE402CEE37E4005A75D3 /* LeagueDetails.swift in Sources */,
 				56F735DF2CECEE52004813FC /* UIView+Extensions.swift in Sources */,
 				565E82CE2CECD093000D8FD7 /* APIRouter.swift in Sources */,
 				56F735EF2CED077D004813FC /* CompetitionsDetailsTableViewCell.swift in Sources */,
