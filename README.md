@@ -42,3 +42,10 @@ The Football League application allows users to explore football competitions, v
 
 - The application caches the data retrieved from the API. When there is no internet connection, the app will display the cached data to ensure that the user experience remains uninterrupted.
 - Cached data is automatically updated when the internet connection is restored.
+
+![All Competitions Screen](firstScreen.png)
+![Competitions Details Scree ](secondScreen.png)
+![Match Info Screen](thirdScreen.png)
+
+
+
