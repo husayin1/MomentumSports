@@ -47,13 +47,11 @@ final class CompetitionsDetailsViewModel {
     
     // MARK: - Private Methods To Handle Observables
     private func handleSuccess(response: CompetitionsDetailsResponse) {
-        isLoading.accept(false)
         headerDetails.onNext(response)
         competitionsDetails.onNext(response.matches ?? [])
     }
     
     private func handleError(error: Error) {
-        isLoading.accept(false)
         self.error.onNext(error.asReadableMessage)
     }
 }

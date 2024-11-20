@@ -59,13 +59,11 @@ final class AllCompetitionsViewModel {
     }
     // MARK: - Private Methods
     private func handleSuccess(response: CompetitionResponse) {
-        isLoading.accept(false)
         offlineService.saveCompetitions(response.competitions)
         competitions.onNext(response.competitions)
     }
     
     private func handleError(error: Error) {
-        isLoading.accept(false)
         self.error.onNext(error.asReadableMessage)
     }
     

@@ -9,8 +9,6 @@ import UIKit
 import Kingfisher
 
 class AllCompetitionsTableViewCell: UITableViewCell {
-    // MARK: - Static Properties
-    static let identifier = String(describing: AllCompetitionsTableViewCell.self)
     // MARK: - Outlets
     @IBOutlet weak private var competitionImageView: UIImageView!
     @IBOutlet weak private var competitionName: UILabel!

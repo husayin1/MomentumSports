@@ -43,12 +43,10 @@ final class MatchInfoViewModel {
     
     //MARK: - Private Methods
     private func handleSuccess(response: Match){
-        isLoading.accept(false)
         match.onNext(response)
     }
     
     private func handleError(error: Error){
-        isLoading.accept(false)
         self.error.onNext(error.asReadableMessage)
     }
     
