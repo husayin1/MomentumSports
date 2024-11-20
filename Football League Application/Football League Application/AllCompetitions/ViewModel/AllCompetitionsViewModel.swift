@@ -13,6 +13,7 @@ final class AllCompetitionsViewModel {
     
     // MARK: - Dependencies
     private let competitionsService: CompetitionsService
+    private let offlineService: LocalDataSource
     private let disposeBag = DisposeBag()
     
     // MARK: - Subjects
@@ -21,14 +22,26 @@ final class AllCompetitionsViewModel {
     let isLoading = BehaviorRelay<Bool>(value: false)
     
     // MARK: - Initialization
-    init(competitionsService: CompetitionsService) {
+    init(competitionsService: CompetitionsService, offlineService: LocalDataSource) {
         self.competitionsService = competitionsService
+        self.offlineService = offlineService
     }
     
     // MARK: - Public Methods
     func loadCompetitions() {
         isLoading.accept(true)
-        
+
+        loadCompetitionsFromLocal()
+
+        if NetworkManager.shared.isInternetAvailable() {
+            offlineService.deleteCompetitions()
+            loadCompetitionsFromRemote()
+        } else {
+            //show something that indicate no network
+            isLoading.accept(false)
+        }
+    }
+    private func loadCompetitionsFromRemote(){
         competitionsService.getCompetitions()
             .subscribe(
                 onNext: { [weak self] competitionResponse in
@@ -44,15 +57,24 @@ final class AllCompetitionsViewModel {
             )
             .disposed(by: disposeBag)
     }
-    
     // MARK: - Private Methods
-     private func handleSuccess(response: CompetitionResponse) {
-         isLoading.accept(false)
-         competitions.onNext(response.competitions)
-     }
-     
-     private func handleError(error: Error) {
-         isLoading.accept(false)
-         self.error.onNext(error.asReadableMessage)
-     }
+    private func handleSuccess(response: CompetitionResponse) {
+        isLoading.accept(false)
+        offlineService.saveCompetitions(response.competitions)
+        competitions.onNext(response.competitions)
+    }
+    
+    private func handleError(error: Error) {
+        isLoading.accept(false)
+        self.error.onNext(error.asReadableMessage)
+    }
+    
+    private func loadCompetitionsFromLocal() {
+        let savedCompetitions = offlineService.getCompetitions()
+        if savedCompetitions.isEmpty {
+            error.onNext("No competitions found in local storage.")
+        } else {
+            competitions.onNext(savedCompetitions)
+        }
+    }
 }

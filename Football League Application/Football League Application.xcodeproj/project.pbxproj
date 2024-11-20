@@ -9,14 +9,15 @@
 /* Begin PBXBuildFile section */
 		5622AE3E2CEE355E005A75D3 /* LeagueDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5622AE3D2CEE355E005A75D3 /* LeagueDetails.xib */; };
 		5622AE402CEE37E4005A75D3 /* LeagueDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622AE3F2CEE37E4005A75D3 /* LeagueDetails.swift */; };
+		5622AE442CEE436E005A75D3 /* LocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622AE432CEE436E005A75D3 /* LocalDataSource.swift */; };
+		5622AE462CEE43DC005A75D3 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622AE452CEE43DC005A75D3 /* CoreData.swift */; };
+		5622AE482CEE442E005A75D3 /* CoreDataLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622AE472CEE442E005A75D3 /* CoreDataLocalDataSource.swift */; };
 		563157722CED73740094DB26 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563157712CED73740094DB26 /* ImageHelper.swift */; };
 		563157742CED7F000094DB26 /* Error+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563157732CED7F000094DB26 /* Error+Extensions.swift */; };
 		563157782CED80660094DB26 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563157772CED80660094DB26 /* Loader.swift */; };
 		5631577A2CED807A0094DB26 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563157792CED807A0094DB26 /* ErrorHandler.swift */; };
 		563157802CED865E0094DB26 /* MatchInfoModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5631577F2CED865E0094DB26 /* MatchInfoModels.swift */; };
 		563157822CED87DD0094DB26 /* MatchInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563157812CED87DD0094DB26 /* MatchInfoViewController.swift */; };
-		563157872CED8B4E0094DB26 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 563157862CED8B4E0094DB26 /* Reachability */; };
-		563157892CED8B660094DB26 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563157882CED8B660094DB26 /* NetworkMonitor.swift */; };
 		565E82AC2CECB55A000D8FD7 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 565E82AB2CECB55A000D8FD7 /* RxCocoa */; };
 		565E82AE2CECB55A000D8FD7 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 565E82AD2CECB55A000D8FD7 /* RxSwift */; };
 		565E82B52CECB9E5000D8FD7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 565E82B42CECB9E5000D8FD7 /* Alamofire */; };
@@ -42,6 +43,10 @@
 		566B8B892CEC38E7005EFE00 /* AllCompetitionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566B8B872CEC38E7005EFE00 /* AllCompetitionsTableViewCell.swift */; };
 		566B8B8A2CEC38E7005EFE00 /* AllCompetitionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 566B8B882CEC38E7005EFE00 /* AllCompetitionsTableViewCell.xib */; };
 		569659942CEDF61C0022D114 /* MatchInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569659932CEDF61C0022D114 /* MatchInfoViewModel.swift */; };
+		569CCFDC2CEE575E00358464 /* CompetitionsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569CCFDB2CEE575E00358464 /* CompetitionsMapper.swift */; };
+		569CCFE62CEE5CF000358464 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569CCFE52CEE5CF000358464 /* NetworkManager.swift */; };
+		569CCFE92CEE61A900358464 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 569CCFE82CEE61A900358464 /* Reachability */; };
+		569CCFEC2CEE65FE00358464 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 569CCFEB2CEE65FE00358464 /* Toast */; };
 		56CB360B2CEE0E31009F7B1F /* MatchHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56CB360A2CEE0E31009F7B1F /* MatchHeaderView.xib */; };
 		56CB360D2CEE11C3009F7B1F /* MatchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CB360C2CEE11C3009F7B1F /* MatchHeaderView.swift */; };
 		56CB36122CEE2C9C009F7B1F /* WinnerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56CB36112CEE2C9C009F7B1F /* WinnerView.xib */; };
@@ -58,13 +63,15 @@
 /* Begin PBXFileReference section */
 		5622AE3D2CEE355E005A75D3 /* LeagueDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeagueDetails.xib; sourceTree = "<group>"; };
 		5622AE3F2CEE37E4005A75D3 /* LeagueDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueDetails.swift; sourceTree = "<group>"; };
+		5622AE432CEE436E005A75D3 /* LocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataSource.swift; sourceTree = "<group>"; };
+		5622AE452CEE43DC005A75D3 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
+		5622AE472CEE442E005A75D3 /* CoreDataLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataLocalDataSource.swift; sourceTree = "<group>"; };
 		563157712CED73740094DB26 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		563157732CED7F000094DB26 /* Error+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extensions.swift"; sourceTree = "<group>"; };
 		563157772CED80660094DB26 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		563157792CED807A0094DB26 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		5631577F2CED865E0094DB26 /* MatchInfoModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchInfoModels.swift; sourceTree = "<group>"; };
 		563157812CED87DD0094DB26 /* MatchInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchInfoViewController.swift; sourceTree = "<group>"; };
-		563157882CED8B660094DB26 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		565E82C12CECBB3B000D8FD7 /* Constatns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constatns.swift; sourceTree = "<group>"; };
 		565E82C62CECCB15000D8FD7 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		565E82C82CECCB57000D8FD7 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
@@ -88,6 +95,8 @@
 		566B8B872CEC38E7005EFE00 /* AllCompetitionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AllCompetitionsTableViewCell.swift; path = "Football League Application/AllCompetitions/View/AllCompetitionsTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		566B8B882CEC38E7005EFE00 /* AllCompetitionsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AllCompetitionsTableViewCell.xib; path = "Football League Application/AllCompetitions/View/AllCompetitionsTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
 		569659932CEDF61C0022D114 /* MatchInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchInfoViewModel.swift; sourceTree = "<group>"; };
+		569CCFDB2CEE575E00358464 /* CompetitionsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionsMapper.swift; sourceTree = "<group>"; };
+		569CCFE52CEE5CF000358464 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		56CB360A2CEE0E31009F7B1F /* MatchHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchHeaderView.xib; sourceTree = "<group>"; };
 		56CB360C2CEE11C3009F7B1F /* MatchHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchHeaderView.swift; sourceTree = "<group>"; };
 		56CB36112CEE2C9C009F7B1F /* WinnerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WinnerView.xib; sourceTree = "<group>"; };
@@ -106,9 +115,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				569CCFEC2CEE65FE00358464 /* Toast in Frameworks */,
 				565E82DF2CECE0FC000D8FD7 /* Kingfisher in Frameworks */,
 				565E82B52CECB9E5000D8FD7 /* Alamofire in Frameworks */,
-				563157872CED8B4E0094DB26 /* Reachability in Frameworks */,
+				569CCFE92CEE61A900358464 /* Reachability in Frameworks */,
 				565E82AE2CECB55A000D8FD7 /* RxSwift in Frameworks */,
 				565E82AC2CECB55A000D8FD7 /* RxCocoa in Frameworks */,
 			);
@@ -117,13 +127,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5622AE412CEE4349005A75D3 /* LocalDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				569CCFD82CEE527E00358464 /* Helpers */,
+				5622AE432CEE436E005A75D3 /* LocalDataSource.swift */,
+				5622AE452CEE43DC005A75D3 /* CoreData.swift */,
+				5622AE472CEE442E005A75D3 /* CoreDataLocalDataSource.swift */,
+			);
+			path = LocalDataSource;
+			sourceTree = "<group>";
+		};
 		563157702CED73320094DB26 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				563157712CED73740094DB26 /* ImageHelper.swift */,
 				563157772CED80660094DB26 /* Loader.swift */,
 				563157792CED807A0094DB26 /* ErrorHandler.swift */,
-				563157882CED8B660094DB26 /* NetworkMonitor.swift */,
+				569CCFE52CEE5CF000358464 /* NetworkManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -206,6 +227,7 @@
 		565E82D12CECD506000D8FD7 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				5622AE412CEE4349005A75D3 /* LocalDataSource */,
 				565E82D62CECD9E9000D8FD7 /* RemoteDataSource */,
 			);
 			path = Data;
@@ -317,6 +339,14 @@
 			path = AllCompetitionsTableViewCell;
 			sourceTree = "<group>";
 		};
+		569CCFD82CEE527E00358464 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				569CCFDB2CEE575E00358464 /* CompetitionsMapper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		56CB36072CEE0C7E009F7B1F /* SupViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -419,7 +449,8 @@
 				565E82AD2CECB55A000D8FD7 /* RxSwift */,
 				565E82B42CECB9E5000D8FD7 /* Alamofire */,
 				565E82DE2CECE0FC000D8FD7 /* Kingfisher */,
-				563157862CED8B4E0094DB26 /* Reachability */,
+				569CCFE82CEE61A900358464 /* Reachability */,
+				569CCFEB2CEE65FE00358464 /* Toast */,
 			);
 			productName = "Football League Application";
 			productReference = 566B8B5B2CEC1043005EFE00 /* Football League Application.app */;
@@ -453,7 +484,8 @@
 				565E82AA2CECB55A000D8FD7 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				565E82B32CECB9E5000D8FD7 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				565E82DD2CECE0FC000D8FD7 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				563157852CED8B4E0094DB26 /* XCRemoteSwiftPackageReference "Reachability" */,
+				569CCFE72CEE61A900358464 /* XCRemoteSwiftPackageReference "Reachability.swift" */,
+				569CCFEA2CEE65FE00358464 /* XCRemoteSwiftPackageReference "toast-swift" */,
 			);
 			productRefGroup = 566B8B5C2CEC1043005EFE00 /* Products */;
 			projectDirPath = "";
@@ -491,6 +523,8 @@
 				566B8B7C2CEC30E7005EFE00 /* AllCompetitionsModel.swift in Sources */,
 				56F735EB2CECFD7F004813FC /* CompetitionsDetailsViewController.swift in Sources */,
 				565E82D52CECD554000D8FD7 /* RemoteDataSource.swift in Sources */,
+				5622AE462CEE43DC005A75D3 /* CoreData.swift in Sources */,
+				5622AE442CEE436E005A75D3 /* LocalDataSource.swift in Sources */,
 				565E82D02CECD2EB000D8FD7 /* APIClientProtocol.swift in Sources */,
 				56CB360D2CEE11C3009F7B1F /* MatchHeaderView.swift in Sources */,
 				56F735E12CECEE79004813FC /* UIViewController+Extensions.swift in Sources */,
@@ -504,12 +538,14 @@
 				565E82CE2CECD093000D8FD7 /* APIRouter.swift in Sources */,
 				56F735EF2CED077D004813FC /* CompetitionsDetailsTableViewCell.swift in Sources */,
 				566B8B692CEC1043005EFE00 /* Football_League_Application.xcdatamodeld in Sources */,
-				563157892CED8B660094DB26 /* NetworkMonitor.swift in Sources */,
+				569CCFE62CEE5CF000358464 /* NetworkManager.swift in Sources */,
 				566B8B7E2CEC32D6005EFE00 /* AllCompetitionsViewModel.swift in Sources */,
 				565E82C92CECCB57000D8FD7 /* APIClient.swift in Sources */,
+				5622AE482CEE442E005A75D3 /* CoreDataLocalDataSource.swift in Sources */,
 				563157742CED7F000094DB26 /* Error+Extensions.swift in Sources */,
 				563157722CED73740094DB26 /* ImageHelper.swift in Sources */,
 				565E82CC2CECCF64000D8FD7 /* APIResources.swift in Sources */,
+				569CCFDC2CEE575E00358464 /* CompetitionsMapper.swift in Sources */,
 				56F735E92CECFCF0004813FC /* CompetitionsDetailsViewModel.swift in Sources */,
 				566B8B632CEC1043005EFE00 /* AllCompetitionsViewController.swift in Sources */,
 				566B8B5F2CEC1043005EFE00 /* AppDelegate.swift in Sources */,
@@ -737,14 +773,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		563157852CED8B4E0094DB26 /* XCRemoteSwiftPackageReference "Reachability" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/tonymillion/Reachability";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
 		565E82AA2CECB55A000D8FD7 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
@@ -769,14 +797,25 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		569CCFE72CEE61A900358464 /* XCRemoteSwiftPackageReference "Reachability.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ashleymills/Reachability.swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		569CCFEA2CEE65FE00358464 /* XCRemoteSwiftPackageReference "toast-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/BastiaanJansen/toast-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		563157862CED8B4E0094DB26 /* Reachability */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 563157852CED8B4E0094DB26 /* XCRemoteSwiftPackageReference "Reachability" */;
-			productName = Reachability;
-		};
 		565E82AB2CECB55A000D8FD7 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 565E82AA2CECB55A000D8FD7 /* XCRemoteSwiftPackageReference "RxSwift" */;
@@ -796,6 +835,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 565E82DD2CECE0FC000D8FD7 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		569CCFE82CEE61A900358464 /* Reachability */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 569CCFE72CEE61A900358464 /* XCRemoteSwiftPackageReference "Reachability.swift" */;
+			productName = Reachability;
+		};
+		569CCFEB2CEE65FE00358464 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 569CCFEA2CEE65FE00358464 /* XCRemoteSwiftPackageReference "toast-swift" */;
+			productName = Toast;
 		};
 /* End XCSwiftPackageProductDependency section */
 

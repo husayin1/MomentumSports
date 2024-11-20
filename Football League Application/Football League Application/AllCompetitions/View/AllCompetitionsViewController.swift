@@ -8,13 +8,13 @@
 import UIKit
 import RxSwift
 import RxCocoa
-
+import Toast
 class AllCompetitionsViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak private var competitionsTableView: UITableView!
     
     // MARK: - Dependencies
-    private let viewModel = AllCompetitionsViewModel(competitionsService: RemoteDataSoure())
+    private let viewModel = AllCompetitionsViewModel(competitionsService: RemoteDataSoure(), offlineService: CoreDataLocalDataSource())
     private let disposeBag = DisposeBag()
     private let loader = Loader()
     
@@ -87,9 +87,19 @@ extension AllCompetitionsViewController {
     private func handleCellSelection() {
         competitionsTableView.rx.modelSelected(Competition.self)
             .subscribe(onNext: { [weak self] competition in
-                self?.navigateToCompetitionDetails(with: competition)
+                if NetworkManager.shared.isInternetAvailable() {
+                    self?.navigateToCompetitionDetails(with: competition)
+                } else {
+                    self?.showToast()
+
+                }
             })
             .disposed(by: disposeBag)
+    }
+    
+    private func showToast(){
+        let toast = Toast.text("Please, check internet connectivity.")
+        toast.show()
     }
     
     private func fetchCompetitions() {
