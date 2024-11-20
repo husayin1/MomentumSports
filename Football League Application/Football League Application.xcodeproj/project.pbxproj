@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		563157722CED73740094DB26 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563157712CED73740094DB26 /* ImageHelper.swift */; };
+		563157742CED7F000094DB26 /* Error+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563157732CED7F000094DB26 /* Error+Extensions.swift */; };
+		563157782CED80660094DB26 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563157772CED80660094DB26 /* Loader.swift */; };
+		5631577A2CED807A0094DB26 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563157792CED807A0094DB26 /* ErrorHandler.swift */; };
+		563157802CED865E0094DB26 /* MatchInfoModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5631577F2CED865E0094DB26 /* MatchInfoModels.swift */; };
+		563157822CED87DD0094DB26 /* MatchInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563157812CED87DD0094DB26 /* MatchInfoViewController.swift */; };
+		563157872CED8B4E0094DB26 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 563157862CED8B4E0094DB26 /* Reachability */; };
+		563157892CED8B660094DB26 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563157882CED8B660094DB26 /* NetworkMonitor.swift */; };
 		565E82AC2CECB55A000D8FD7 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 565E82AB2CECB55A000D8FD7 /* RxCocoa */; };
 		565E82AE2CECB55A000D8FD7 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 565E82AD2CECB55A000D8FD7 /* RxSwift */; };
 		565E82B52CECB9E5000D8FD7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 565E82B42CECB9E5000D8FD7 /* Alamofire */; };
@@ -41,6 +49,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		563157712CED73740094DB26 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		563157732CED7F000094DB26 /* Error+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extensions.swift"; sourceTree = "<group>"; };
+		563157772CED80660094DB26 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		563157792CED807A0094DB26 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
+		5631577F2CED865E0094DB26 /* MatchInfoModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchInfoModels.swift; sourceTree = "<group>"; };
+		563157812CED87DD0094DB26 /* MatchInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchInfoViewController.swift; sourceTree = "<group>"; };
+		563157882CED8B660094DB26 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		565E82C12CECBB3B000D8FD7 /* Constatns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constatns.swift; sourceTree = "<group>"; };
 		565E82C62CECCB15000D8FD7 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		565E82C82CECCB57000D8FD7 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
@@ -79,6 +94,7 @@
 			files = (
 				565E82DF2CECE0FC000D8FD7 /* Kingfisher in Frameworks */,
 				565E82B52CECB9E5000D8FD7 /* Alamofire in Frameworks */,
+				563157872CED8B4E0094DB26 /* Reachability in Frameworks */,
 				565E82AE2CECB55A000D8FD7 /* RxSwift in Frameworks */,
 				565E82AC2CECB55A000D8FD7 /* RxCocoa in Frameworks */,
 			);
@@ -87,6 +103,70 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		563157702CED73320094DB26 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				563157712CED73740094DB26 /* ImageHelper.swift */,
+				563157772CED80660094DB26 /* Loader.swift */,
+				563157792CED807A0094DB26 /* ErrorHandler.swift */,
+				563157882CED8B660094DB26 /* NetworkMonitor.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		5631577B2CED85610094DB26 /* MatchInfo */ = {
+			isa = PBXGroup;
+			children = (
+				5631577E2CED86500094DB26 /* ViewModel */,
+				5631577D2CED864C0094DB26 /* View */,
+				5631577C2CED86490094DB26 /* Model */,
+			);
+			path = MatchInfo;
+			sourceTree = "<group>";
+		};
+		5631577C2CED86490094DB26 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5631577F2CED865E0094DB26 /* MatchInfoModels.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5631577D2CED864C0094DB26 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				563157812CED87DD0094DB26 /* MatchInfoViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5631577E2CED86500094DB26 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		563157832CED89190094DB26 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				566B8B6C2CEC1044005EFE00 /* LaunchScreen.storyboard */,
+				566B8B642CEC1043005EFE00 /* Main.storyboard */,
+				566B8B6A2CEC1044005EFE00 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		563157842CED89780094DB26 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				565E82DA2CECE054000D8FD7 /* Extensions */,
+				563157702CED73320094DB26 /* Utilities */,
+				565E82C02CECBB32000D8FD7 /* Constants */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		565E82C02CECBB32000D8FD7 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +210,7 @@
 				565E82DB2CECE066000D8FD7 /* String+Extension.swift */,
 				56F735DE2CECEE52004813FC /* UIView+Extensions.swift */,
 				56F735E02CECEE79004813FC /* UIViewController+Extensions.swift */,
+				563157732CED7F000094DB26 /* Error+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -153,16 +234,13 @@
 		566B8B5D2CEC1043005EFE00 /* Football League Application */ = {
 			isa = PBXGroup;
 			children = (
-				565E82DA2CECE054000D8FD7 /* Extensions */,
 				565E82D12CECD506000D8FD7 /* Data */,
 				565E82C32CECCA93000D8FD7 /* NetworkService */,
-				565E82C02CECBB32000D8FD7 /* Constants */,
+				5631577B2CED85610094DB26 /* MatchInfo */,
 				56F735E22CECF7E6004813FC /* CompetitionsDetails */,
 				566B8B772CEC300D005EFE00 /* AllCompetitions */,
+				563157842CED89780094DB26 /* Helpers */,
 				566B8B762CEC2FEC005EFE00 /* App */,
-				566B8B642CEC1043005EFE00 /* Main.storyboard */,
-				566B8B6A2CEC1044005EFE00 /* Assets.xcassets */,
-				566B8B6C2CEC1044005EFE00 /* LaunchScreen.storyboard */,
 				566B8B6F2CEC1044005EFE00 /* Info.plist */,
 				566B8B672CEC1043005EFE00 /* Football_League_Application.xcdatamodeld */,
 			);
@@ -172,6 +250,7 @@
 		566B8B762CEC2FEC005EFE00 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				563157832CED89190094DB26 /* Resources */,
 				566B8B5E2CEC1043005EFE00 /* AppDelegate.swift */,
 				566B8B602CEC1043005EFE00 /* SceneDelegate.swift */,
 			);
@@ -287,6 +366,7 @@
 				565E82AD2CECB55A000D8FD7 /* RxSwift */,
 				565E82B42CECB9E5000D8FD7 /* Alamofire */,
 				565E82DE2CECE0FC000D8FD7 /* Kingfisher */,
+				563157862CED8B4E0094DB26 /* Reachability */,
 			);
 			productName = "Football League Application";
 			productReference = 566B8B5B2CEC1043005EFE00 /* Football League Application.app */;
@@ -320,6 +400,7 @@
 				565E82AA2CECB55A000D8FD7 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				565E82B32CECB9E5000D8FD7 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				565E82DD2CECE0FC000D8FD7 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				563157852CED8B4E0094DB26 /* XCRemoteSwiftPackageReference "Reachability" */,
 			);
 			productRefGroup = 566B8B5C2CEC1043005EFE00 /* Products */;
 			projectDirPath = "";
@@ -356,19 +437,26 @@
 				565E82D52CECD554000D8FD7 /* RemoteDataSource.swift in Sources */,
 				565E82D02CECD2EB000D8FD7 /* APIClientProtocol.swift in Sources */,
 				56F735E12CECEE79004813FC /* UIViewController+Extensions.swift in Sources */,
+				563157802CED865E0094DB26 /* MatchInfoModels.swift in Sources */,
+				5631577A2CED807A0094DB26 /* ErrorHandler.swift in Sources */,
 				565E82D32CECD526000D8FD7 /* RemoteDataSourceProtocol.swift in Sources */,
 				565E82C22CECBB3B000D8FD7 /* Constatns.swift in Sources */,
 				56F735DF2CECEE52004813FC /* UIView+Extensions.swift in Sources */,
 				565E82CE2CECD093000D8FD7 /* APIRouter.swift in Sources */,
 				56F735EF2CED077D004813FC /* CompetitionsDetailsTableViewCell.swift in Sources */,
 				566B8B692CEC1043005EFE00 /* Football_League_Application.xcdatamodeld in Sources */,
+				563157892CED8B660094DB26 /* NetworkMonitor.swift in Sources */,
 				566B8B7E2CEC32D6005EFE00 /* AllCompetitionsViewModel.swift in Sources */,
 				565E82C92CECCB57000D8FD7 /* APIClient.swift in Sources */,
+				563157742CED7F000094DB26 /* Error+Extensions.swift in Sources */,
+				563157722CED73740094DB26 /* ImageHelper.swift in Sources */,
 				565E82CC2CECCF64000D8FD7 /* APIResources.swift in Sources */,
 				56F735E92CECFCF0004813FC /* CompetitionsDetailsViewModel.swift in Sources */,
 				566B8B632CEC1043005EFE00 /* AllCompetitionsViewController.swift in Sources */,
 				566B8B5F2CEC1043005EFE00 /* AppDelegate.swift in Sources */,
 				566B8B892CEC38E7005EFE00 /* AllCompetitionsTableViewCell.swift in Sources */,
+				563157782CED80660094DB26 /* Loader.swift in Sources */,
+				563157822CED87DD0094DB26 /* MatchInfoViewController.swift in Sources */,
 				566B8B612CEC1043005EFE00 /* SceneDelegate.swift in Sources */,
 				56F735E72CECFAF4004813FC /* CompetitionsDetailsModel.swift in Sources */,
 				565E82C72CECCB15000D8FD7 /* NetworkError.swift in Sources */,
@@ -589,6 +677,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		563157852CED8B4E0094DB26 /* XCRemoteSwiftPackageReference "Reachability" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tonymillion/Reachability";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		565E82AA2CECB55A000D8FD7 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
@@ -616,6 +712,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		563157862CED8B4E0094DB26 /* Reachability */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 563157852CED8B4E0094DB26 /* XCRemoteSwiftPackageReference "Reachability" */;
+			productName = Reachability;
+		};
 		565E82AB2CECB55A000D8FD7 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 565E82AA2CECB55A000D8FD7 /* XCRemoteSwiftPackageReference "RxSwift" */;

@@ -10,12 +10,15 @@ import Foundation
 enum APIResources {
     case competitions
     case competitionDetails(id: Int)
+    case matches(id: Int)
     var endpoint: String {
         switch self {
         case .competitions:
             return "competitions"
         case .competitionDetails(let id):
             return "competitions/\(id)/matches"
+        case .matches(let id):
+            return "matches/\(id)"
         }
     }
 }

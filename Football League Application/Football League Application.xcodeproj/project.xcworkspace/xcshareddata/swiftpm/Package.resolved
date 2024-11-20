@@ -19,6 +19,15 @@
       }
     },
     {
+      "identity" : "reachability",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/tonymillion/Reachability",
+      "state" : {
+        "revision" : "3e16ffa862dda39ca9c49722d9bcb68cc2ae83d5",
+        "version" : "3.7.6"
+      }
+    },
+    {
       "identity" : "rxswift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ReactiveX/RxSwift.git",

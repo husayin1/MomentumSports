@@ -8,7 +8,16 @@
 import Foundation
 import RxSwift
 
-protocol RemoteDataSourceProtocol{
+
+protocol CompetitionsService{
     func getCompetitions() -> Observable<CompetitionResponse>
+}
+
+protocol CompetitionsDetailsService{
     func getCompetitionsDetails(by id: Int) -> Observable<CompetitionsDetailsResponse>
 }
+
+protocol MatchInfoService{
+    func getMatchInfo(by id: Int) -> Observable<MatchInfoResponse>
+}
+

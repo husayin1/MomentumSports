@@ -7,40 +7,52 @@
 
 import Foundation
 import RxSwift
+import RxRelay
 
-class AllCompetitionsViewModel {
+final class AllCompetitionsViewModel {
     
-    let remoteService = RemoteDataSoure(networkService: APIClient.shared)
-    let competitions: PublishSubject<[Competition]> = PublishSubject()
-    let error: PublishSubject<String> = PublishSubject()
-
+    // MARK: - Dependencies
+    private let competitionsService: CompetitionsService
     private let disposeBag = DisposeBag()
-
-    func getCompetitions() {
-            print("Requesting competitions...")
-            
-        remoteService.getCompetitions()
-                .subscribe(
-                    onNext: { [weak self] competitionResponse in
-                        // Handle success
-                        print("Competitions received: \(competitionResponse)")
-                        self?.competitions.onNext(competitionResponse.competitions)
-                    },
-                    onError: { [weak self] error in
-                        // Handle error
-                        if let networkError = error as? NetworkError {
-                            print("Error: \(networkError.message)")
-                            self?.error.onNext(networkError.message)
-                        } else {
-                            print("Unexpected error: \(error)")
-                            self?.error.onNext("An unexpected error occurred.")
-
-                        }
-                    },
-                    onCompleted: {
-                        print("Request completed.")
-                    }
-                )
-                .disposed(by: disposeBag)
-        }
+    
+    // MARK: - Subjects
+    let competitions = PublishSubject<[Competition]>()
+    let error = PublishSubject<String>()
+    let isLoading = BehaviorRelay<Bool>(value: false)
+    
+    // MARK: - Initialization
+    init(competitionsService: CompetitionsService) {
+        self.competitionsService = competitionsService
+    }
+    
+    // MARK: - Public Methods
+    func loadCompetitions() {
+        isLoading.accept(true)
+        
+        competitionsService.getCompetitions()
+            .subscribe(
+                onNext: { [weak self] competitionResponse in
+                    self?.handleSuccess(response: competitionResponse)
+                },
+                onError: { [weak self] error in
+                    self?.handleError(error: error)
+                },
+                onCompleted: { [weak self] in
+                    self?.isLoading.accept(false)
+                    
+                }
+            )
+            .disposed(by: disposeBag)
+    }
+    
+    // MARK: - Private Methods
+     private func handleSuccess(response: CompetitionResponse) {
+         isLoading.accept(false)
+         competitions.onNext(response.competitions)
+     }
+     
+     private func handleError(error: Error) {
+         isLoading.accept(false)
+         self.error.onNext(error.asReadableMessage)
+     }
 }

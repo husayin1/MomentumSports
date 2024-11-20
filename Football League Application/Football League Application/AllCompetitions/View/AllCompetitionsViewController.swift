@@ -10,34 +10,31 @@ import RxSwift
 import RxCocoa
 
 class AllCompetitionsViewController: UIViewController {
-    @IBOutlet weak var competitionsTableView: UITableView!
+    // MARK: - Outlets
+    @IBOutlet weak private var competitionsTableView: UITableView!
     
-    
-    private let viewModel = AllCompetitionsViewModel()
+    // MARK: - Dependencies
+    private let viewModel = AllCompetitionsViewModel(competitionsService: RemoteDataSoure(networkService: APIClient.shared))
     private let disposeBag = DisposeBag()
-    
+    private let loader = Loader()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        registerTableViewCell()
-        // Bind the competitions data to the table view
-        bindCompetitions()
-        
-        // Fetch competitions data
-        viewModel.getCompetitions()
-        
-        handleCellTap() // Handle cell selection
+        setupUI()
+        bindViewModel()
+        fetchCompetitions()
         
     }
     
-    private func bindCompetitions() {
-        viewModel.competitions
-            .bind(to: competitionsTableView.rx.items(cellIdentifier: AllCompetitionsTableViewCell.identifier, cellType: AllCompetitionsTableViewCell.self)) { index, competition, cell in
-                // Bind competition data to the table view cell
-                cell.setupCell(with: competition)
-            }
-            .disposed(by: disposeBag)
+    
+}
+// MARK: - Setup & Binding
+
+extension AllCompetitionsViewController {
+    // MARK: - Private Methods
+    private func setupUI() {
+        registerTableViewCell()
+        loader.attach(to: view)
     }
     
     private func registerTableViewCell() {
@@ -45,22 +42,70 @@ class AllCompetitionsViewController: UIViewController {
         competitionsTableView.register(nib, forCellReuseIdentifier: AllCompetitionsTableViewCell.identifier)
     }
     
-    private func handleCellTap() {
+    
+    private func bindCompetitions() {
+        viewModel.competitions
+            .bind(to: competitionsTableView.rx.items(
+                cellIdentifier: AllCompetitionsTableViewCell.identifier,
+                cellType: AllCompetitionsTableViewCell.self
+            )) { _ , competition, cell in
+                cell.configure(with: competition)
+            }
+            .disposed(by: disposeBag)
+        
+    }
+    
+    
+    // MARK: - Binding
+    private func bindViewModel() {
+        bindCompetitions()
+        observeLoadingState()
+        handleCellSelection()
+        bindErrorState()
+    }
+    private func bindErrorState() {
+        viewModel.error
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] errorMessage in
+                ErrorHandler.showErrorAlert(on: self!, message: errorMessage)
+            })
+            .disposed(by: disposeBag)
+        
+    }
+    private func observeLoadingState() {
+        viewModel.isLoading
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] isLoading in
+                isLoading ?
+                self?.loader.show() :
+                self?.loader.hide()
+            })
+            .disposed(by: disposeBag)
+        
+    }
+    
+    private func handleCellSelection() {
         competitionsTableView.rx.modelSelected(Competition.self)
             .subscribe(onNext: { [weak self] competition in
-                guard let self = self else { return }
-                print("Cell Tapped: \(competition.id)")
-                self.navigateToCompetitionDetails(with: competition)
+                self?.navigateToCompetitionDetails(with: competition)
             })
             .disposed(by: disposeBag)
     }
     
+    private func fetchCompetitions() {
+        viewModel.loadCompetitions()
+    }
+    
+    
+    
+    
+}
+//MARK: - Navigation Handling
+extension AllCompetitionsViewController {
     private func navigateToCompetitionDetails(with competition: Competition) {
         let controller = CompetitionsDetailsViewController.instantiate()
         controller.competitionId = competition.id ?? 2000
         controller.title = competition.type
         navigationController?.pushViewController(controller, animated: true)
     }
-    
 }
-

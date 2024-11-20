@@ -7,43 +7,53 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
-class CompetitionsDetailsViewModel {
+final class CompetitionsDetailsViewModel {
     
-    let remoteService = RemoteDataSoure(networkService: APIClient.shared)
-    let competitionsDetails: PublishSubject<[Match]> = PublishSubject()
-    let error: PublishSubject<String> = PublishSubject()
-    let headerDetails: PublishSubject<CompetitionsDetailsResponse> = PublishSubject()
-
+    // MARK: - Dependencies
+    private let competitionsDetailsService: CompetitionsDetailsService
     private let disposeBag = DisposeBag()
     
+    //MARK: - Subjects for Observables
+    let competitionsDetails = PublishSubject<[Match]>()
+    let error = PublishSubject<String>()
+    let headerDetails = PublishSubject<CompetitionsDetailsResponse>()
+    let isLoading = BehaviorRelay<Bool>(value: false)
+
+    //MARK: - Initializer
+    init(competitionsDetailsService: CompetitionsDetailsService){
+        self.competitionsDetailsService = competitionsDetailsService
+    }
+
+    //MARK: - fetchCompetitionsDetails
     func getCompetitionsDetailsBy(id: Int) {
-        print("Requesting competitions...")
-        
-        remoteService.getCompetitionsDetails(by: id)
+        isLoading.accept(true)
+
+        competitionsDetailsService.getCompetitionsDetails(by: id)
             .subscribe(
             onNext: { [weak self] competitionDetailsResponse in
-                // Handle success
-                print("Competitions received: \(competitionDetailsResponse)")
-                self?.headerDetails.onNext(competitionDetailsResponse)
-                self?.competitionsDetails.onNext(competitionDetailsResponse.matches!)
+                self?.handleSuccess(response: competitionDetailsResponse)
             },
             onError: { [weak self] error in
-                // Handle error
-                if let networkError = error as? NetworkError {
-                    print("Error in here: \(networkError.message)")
-                    self?.error.onNext(networkError.message)
-                } else {
-                    print("Unexpected error: \(error)")
-                    self?.error.onNext("An unexpected error occurred.")
-
-                }
+                self?.handleError(error: error)
             },
-            onCompleted: {
-                print("Request completed.")
+            onCompleted: { [weak self] in
+                self?.isLoading.accept(false)
             }
         )
         .disposed(by: disposeBag)
-        
+    }
+    
+    // MARK: - Private Methods To Handle Observables
+    private func handleSuccess(response: CompetitionsDetailsResponse) {
+        isLoading.accept(false)
+        headerDetails.onNext(response)
+        competitionsDetails.onNext(response.matches ?? [])
+    }
+    
+    private func handleError(error: Error) {
+        isLoading.accept(false)
+        self.error.onNext(error.asReadableMessage)
     }
 }

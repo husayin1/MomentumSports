@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-class RemoteDataSoure: RemoteDataSourceProtocol {
+class RemoteDataSoure: CompetitionsService, CompetitionsDetailsService, MatchInfoService {
     let apiClient: APIClient
     
     init(networkService: APIClient){
@@ -25,4 +25,8 @@ class RemoteDataSoure: RemoteDataSourceProtocol {
         return apiClient.performRequest(route: .competitionDetails(competitionId: id))
     }
     
+    func getMatchInfo(by id: Int) -> Observable<MatchInfoResponse> {
+        print("Performing get Match Info ...")
+        return apiClient.performRequest(route: .matches(matchId: id))
+    }
 }

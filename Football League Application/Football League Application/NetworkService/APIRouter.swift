@@ -12,25 +12,26 @@ enum APIRouter: URLRequestConvertible {
     
     case competitions
     case competitionDetails(competitionId: Int)
+    case matches(matchId: Int)
     
     
     var method: HTTPMethod {
         switch self {
-        case .competitions, .competitionDetails:
+        case .competitions, .competitionDetails, .matches:
             return .get
         }
     }
     
     var encoding: ParameterEncoding {
         switch self {
-        case .competitions, .competitionDetails:
+        case .competitions, .competitionDetails, .matches:
             return URLEncoding(destination: .queryString)
         }
     }
     
     var parameters: [String: Any]? {
         switch self {
-        case .competitions, .competitionDetails:
+        case .competitions, .competitionDetails, .matches:
             return nil
         }
     }
@@ -43,12 +44,14 @@ enum APIRouter: URLRequestConvertible {
             return APIResources.competitions.endpoint
         case .competitionDetails(let id):
             return APIResources.competitionDetails(id: id).endpoint
+        case .matches(let id):
+            return APIResources.matches(id: id).endpoint
         }
     }
     
     var authorizationHeader: HTTPHeaderField? {
         switch self {
-        case .competitions, .competitionDetails:
+        case .competitions, .competitionDetails, .matches:
             return .authorization
         }
     }
