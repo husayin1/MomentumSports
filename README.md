@@ -35,8 +35,8 @@ The Football League application allows users to explore football competitions, v
 - **Programming Language**: Swift
 - **Architecture**: MVVM (Model-View-ViewModel)
 - **Reactive Programming**: RxSwift
-- **Data Caching**: Core Data (or your preferred caching method) to store data for offline use.
-- **Networking**: Custom API Client using Alamofire (or native URLSession) for fetching data from APIs.
+- **Data Caching**: Core Data to store data for offline use.
+- **Networking**: Custom API Client using Alamofire for fetching data from APIs.
 
 ## Offline Support
 
