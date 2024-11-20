@@ -15,7 +15,7 @@ class RemoteDataSoure: APIClient, CompetitionsService, CompetitionsDetailsServic
         return performRequest(route: .competitions)
     }
     
-    func getCompetitionsDetails(by id: Int) -> RxSwift.Observable<CompetitionsDetailsResponse> {
+    func getCompetitionsDetails(by id: Int) -> Observable<CompetitionsDetailsResponse> {
         print("Performing get Competitiong Details ...")
         return performRequest(route: .competitionDetails(competitionId: id))
     }

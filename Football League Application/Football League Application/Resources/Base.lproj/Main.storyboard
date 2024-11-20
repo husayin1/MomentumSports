@@ -176,7 +176,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Rl-uA-xgd">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Rl-uA-xgd">
                                 <rect key="frame" x="0.0" y="59" width="393" height="793"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qln-f3-q1T">
@@ -191,7 +191,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sFd-Kd-4X8" customClass="WinnerView" customModule="Football_League_Application" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="152" width="369" height="444"/>
+                                                <rect key="frame" x="8" y="152" width="385" height="444"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="444" id="qSz-hu-EKW"/>
@@ -204,7 +204,7 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="sFd-Kd-4X8" secondAttribute="trailing" constant="16" id="0o9-9h-ru0"/>
+                                            <constraint firstAttribute="trailing" secondItem="sFd-Kd-4X8" secondAttribute="trailing" id="0o9-9h-ru0"/>
                                             <constraint firstItem="JaG-D4-UUw" firstAttribute="leading" secondItem="qln-f3-q1T" secondAttribute="leading" constant="8" id="63a-xr-4z3"/>
                                             <constraint firstAttribute="trailing" secondItem="yrY-rN-aT7" secondAttribute="trailing" id="99U-Fp-0jy"/>
                                             <constraint firstItem="yrY-rN-aT7" firstAttribute="top" secondItem="sFd-Kd-4X8" secondAttribute="bottom" id="E8B-WX-ziN"/>
