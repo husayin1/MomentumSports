@@ -17,7 +17,7 @@ final class CompetitionsDetailsViewController: UIViewController {
     @IBOutlet weak var competitionSeasonLabel: UILabel!
     
     // MARK: - Properties
-    private let viewModel = CompetitionsDetailsViewModel(competitionsDetailsService: RemoteDataSoure(networkService: APIClient.shared))
+    private let viewModel = CompetitionsDetailsViewModel(competitionsDetailsService: RemoteDataSoure())
     private let disposeBag = DisposeBag()
     private let loader = Loader()
     var competitionId: Int?
@@ -33,6 +33,7 @@ final class CompetitionsDetailsViewController: UIViewController {
     
 }
 
+//MARK: - UI Methods
 extension CompetitionsDetailsViewController {
     // MARK: - Private Methods
     private func setupUI() {
@@ -45,6 +46,23 @@ extension CompetitionsDetailsViewController {
         let nib = UINib(nibName: CompetitionsDetailsTableViewCell.identifier, bundle: nil)
         competitionsDetailsTableView.register(nib, forCellReuseIdentifier: CompetitionsDetailsTableViewCell.identifier)
     }
+    
+    private func updateHeader(with details: CompetitionsDetailsResponse) {
+        competitionNameLabel.text = details.competition?.name ?? "Unknown"
+        competitionSeasonLabel.text = details.filters?.season ?? "Unknown"
+        DefaultImageLoader.loadImage(from: details.competition?.emblem?.asUrl, into: comptetionsImageView, placeholder: UIImage(named: "cup"))
+    }
+    
+    private func handleCellSelection() {
+        competitionsDetailsTableView.rx.modelSelected(Match.self)
+            .subscribe(onNext: { [weak self] match in
+                self?.navigateToMatchInfo(match.id ?? 493753)
+            })
+            .disposed(by: disposeBag)
+    }
+}
+//MARK: - ViewModel Calls
+extension CompetitionsDetailsViewController {
     
     private func fetchCompetitionDetails() {
         guard let competitionId = competitionId else { return }
@@ -96,25 +114,14 @@ extension CompetitionsDetailsViewController {
             })
             .disposed(by: disposeBag)
     }
-    
-    private func updateHeader(with details: CompetitionsDetailsResponse) {
-        competitionNameLabel.text = details.competition?.name ?? "Unknown"
-        competitionSeasonLabel.text = details.filters?.season ?? "Unknown"
-        DefaultImageLoader.loadImage(from: details.competition?.emblem?.asUrl, into: comptetionsImageView, placeholder: UIImage(named: "cup"))
-    }
-    
-    private func handleCellSelection() {
-        competitionsDetailsTableView.rx.modelSelected(Match.self)
-            .subscribe(onNext: { [weak self] match in
-                self?.navigateToMatchInfo()
-            })
-            .disposed(by: disposeBag)
-    }
 }
+
+
 //MARK: - Navigation Handling
 extension CompetitionsDetailsViewController {
-    private func navigateToMatchInfo() {
+    private func navigateToMatchInfo(_ matchId: Int) {
         let controller = MatchInfoViewController.instantiate()
+        controller.matchId = matchId
         navigationController?.pushViewController(controller, animated: true)
     }
 }

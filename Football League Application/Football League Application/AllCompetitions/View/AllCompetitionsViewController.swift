@@ -14,7 +14,7 @@ class AllCompetitionsViewController: UIViewController {
     @IBOutlet weak private var competitionsTableView: UITableView!
     
     // MARK: - Dependencies
-    private let viewModel = AllCompetitionsViewModel(competitionsService: RemoteDataSoure(networkService: APIClient.shared))
+    private let viewModel = AllCompetitionsViewModel(competitionsService: RemoteDataSoure())
     private let disposeBag = DisposeBag()
     private let loader = Loader()
     

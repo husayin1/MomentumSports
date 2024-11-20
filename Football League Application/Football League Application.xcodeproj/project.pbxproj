@@ -39,6 +39,11 @@
 		566B8B7E2CEC32D6005EFE00 /* AllCompetitionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566B8B7D2CEC32D6005EFE00 /* AllCompetitionsViewModel.swift */; };
 		566B8B892CEC38E7005EFE00 /* AllCompetitionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566B8B872CEC38E7005EFE00 /* AllCompetitionsTableViewCell.swift */; };
 		566B8B8A2CEC38E7005EFE00 /* AllCompetitionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 566B8B882CEC38E7005EFE00 /* AllCompetitionsTableViewCell.xib */; };
+		569659942CEDF61C0022D114 /* MatchInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569659932CEDF61C0022D114 /* MatchInfoViewModel.swift */; };
+		56CB360B2CEE0E31009F7B1F /* MatchHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56CB360A2CEE0E31009F7B1F /* MatchHeaderView.xib */; };
+		56CB360D2CEE11C3009F7B1F /* MatchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CB360C2CEE11C3009F7B1F /* MatchHeaderView.swift */; };
+		56CB36122CEE2C9C009F7B1F /* WinnerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56CB36112CEE2C9C009F7B1F /* WinnerView.xib */; };
+		56CB36142CEE2ECD009F7B1F /* WinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CB36132CEE2ECD009F7B1F /* WinnerView.swift */; };
 		56F735DF2CECEE52004813FC /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F735DE2CECEE52004813FC /* UIView+Extensions.swift */; };
 		56F735E12CECEE79004813FC /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F735E02CECEE79004813FC /* UIViewController+Extensions.swift */; };
 		56F735E72CECFAF4004813FC /* CompetitionsDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F735E62CECFAF4004813FC /* CompetitionsDetailsModel.swift */; };
@@ -78,6 +83,11 @@
 		566B8B7D2CEC32D6005EFE00 /* AllCompetitionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCompetitionsViewModel.swift; sourceTree = "<group>"; };
 		566B8B872CEC38E7005EFE00 /* AllCompetitionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AllCompetitionsTableViewCell.swift; path = "Football League Application/AllCompetitions/View/AllCompetitionsTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		566B8B882CEC38E7005EFE00 /* AllCompetitionsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AllCompetitionsTableViewCell.xib; path = "Football League Application/AllCompetitions/View/AllCompetitionsTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
+		569659932CEDF61C0022D114 /* MatchInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchInfoViewModel.swift; sourceTree = "<group>"; };
+		56CB360A2CEE0E31009F7B1F /* MatchHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchHeaderView.xib; sourceTree = "<group>"; };
+		56CB360C2CEE11C3009F7B1F /* MatchHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchHeaderView.swift; sourceTree = "<group>"; };
+		56CB36112CEE2C9C009F7B1F /* WinnerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WinnerView.xib; sourceTree = "<group>"; };
+		56CB36132CEE2ECD009F7B1F /* WinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinnerView.swift; sourceTree = "<group>"; };
 		56F735DE2CECEE52004813FC /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		56F735E02CECEE79004813FC /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		56F735E62CECFAF4004813FC /* CompetitionsDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionsDetailsModel.swift; sourceTree = "<group>"; };
@@ -135,6 +145,7 @@
 		5631577D2CED864C0094DB26 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				56CB36072CEE0C7E009F7B1F /* SupViews */,
 				563157812CED87DD0094DB26 /* MatchInfoViewController.swift */,
 			);
 			path = View;
@@ -143,6 +154,7 @@
 		5631577E2CED86500094DB26 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				569659932CEDF61C0022D114 /* MatchInfoViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -240,6 +252,7 @@
 				56F735E22CECF7E6004813FC /* CompetitionsDetails */,
 				566B8B772CEC300D005EFE00 /* AllCompetitions */,
 				563157842CED89780094DB26 /* Helpers */,
+				563157832CED89190094DB26 /* Resources */,
 				566B8B762CEC2FEC005EFE00 /* App */,
 				566B8B6F2CEC1044005EFE00 /* Info.plist */,
 				566B8B672CEC1043005EFE00 /* Football_League_Application.xcdatamodeld */,
@@ -250,7 +263,6 @@
 		566B8B762CEC2FEC005EFE00 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				563157832CED89190094DB26 /* Resources */,
 				566B8B5E2CEC1043005EFE00 /* AppDelegate.swift */,
 				566B8B602CEC1043005EFE00 /* SceneDelegate.swift */,
 			);
@@ -299,6 +311,41 @@
 				566B8B882CEC38E7005EFE00 /* AllCompetitionsTableViewCell.xib */,
 			);
 			path = AllCompetitionsTableViewCell;
+			sourceTree = "<group>";
+		};
+		56CB36072CEE0C7E009F7B1F /* SupViews */ = {
+			isa = PBXGroup;
+			children = (
+				56CB36102CEE2C85009F7B1F /* BottomView */,
+				56CB360F2CEE2C7F009F7B1F /* MiddleView */,
+				56CB360E2CEE2C75009F7B1F /* TopView */,
+			);
+			path = SupViews;
+			sourceTree = "<group>";
+		};
+		56CB360E2CEE2C75009F7B1F /* TopView */ = {
+			isa = PBXGroup;
+			children = (
+				56CB360A2CEE0E31009F7B1F /* MatchHeaderView.xib */,
+				56CB360C2CEE11C3009F7B1F /* MatchHeaderView.swift */,
+			);
+			path = TopView;
+			sourceTree = "<group>";
+		};
+		56CB360F2CEE2C7F009F7B1F /* MiddleView */ = {
+			isa = PBXGroup;
+			children = (
+				56CB36112CEE2C9C009F7B1F /* WinnerView.xib */,
+				56CB36132CEE2ECD009F7B1F /* WinnerView.swift */,
+			);
+			path = MiddleView;
+			sourceTree = "<group>";
+		};
+		56CB36102CEE2C85009F7B1F /* BottomView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BottomView;
 			sourceTree = "<group>";
 		};
 		56F735E22CECF7E6004813FC /* CompetitionsDetails */ = {
@@ -419,6 +466,8 @@
 				566B8B6E2CEC1044005EFE00 /* LaunchScreen.storyboard in Resources */,
 				566B8B6B2CEC1044005EFE00 /* Assets.xcassets in Resources */,
 				56F735F02CED077D004813FC /* CompetitionsDetailsTableViewCell.xib in Resources */,
+				56CB36122CEE2C9C009F7B1F /* WinnerView.xib in Resources */,
+				56CB360B2CEE0E31009F7B1F /* MatchHeaderView.xib in Resources */,
 				566B8B8A2CEC38E7005EFE00 /* AllCompetitionsTableViewCell.xib in Resources */,
 				566B8B662CEC1043005EFE00 /* Main.storyboard in Resources */,
 			);
@@ -436,9 +485,11 @@
 				56F735EB2CECFD7F004813FC /* CompetitionsDetailsViewController.swift in Sources */,
 				565E82D52CECD554000D8FD7 /* RemoteDataSource.swift in Sources */,
 				565E82D02CECD2EB000D8FD7 /* APIClientProtocol.swift in Sources */,
+				56CB360D2CEE11C3009F7B1F /* MatchHeaderView.swift in Sources */,
 				56F735E12CECEE79004813FC /* UIViewController+Extensions.swift in Sources */,
 				563157802CED865E0094DB26 /* MatchInfoModels.swift in Sources */,
 				5631577A2CED807A0094DB26 /* ErrorHandler.swift in Sources */,
+				569659942CEDF61C0022D114 /* MatchInfoViewModel.swift in Sources */,
 				565E82D32CECD526000D8FD7 /* RemoteDataSourceProtocol.swift in Sources */,
 				565E82C22CECBB3B000D8FD7 /* Constatns.swift in Sources */,
 				56F735DF2CECEE52004813FC /* UIView+Extensions.swift in Sources */,
@@ -460,6 +511,7 @@
 				566B8B612CEC1043005EFE00 /* SceneDelegate.swift in Sources */,
 				56F735E72CECFAF4004813FC /* CompetitionsDetailsModel.swift in Sources */,
 				565E82C72CECCB15000D8FD7 /* NetworkError.swift in Sources */,
+				56CB36142CEE2ECD009F7B1F /* WinnerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

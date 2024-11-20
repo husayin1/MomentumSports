@@ -18,6 +18,6 @@ protocol CompetitionsDetailsService{
 }
 
 protocol MatchInfoService{
-    func getMatchInfo(by id: Int) -> Observable<MatchInfoResponse>
+    func getMatchInfo(by id: Int) -> Observable<Match>
 }
 

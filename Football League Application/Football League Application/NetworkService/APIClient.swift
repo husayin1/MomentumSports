@@ -10,11 +10,6 @@ import Alamofire
 import RxSwift
 
 class APIClient: APIClientProtocol {
-    
-    static let shared = APIClient()
-    
-    private init() {}
-    
     func performRequest<T: Decodable>(
         route: APIRouter,
         decoder: JSONDecoder = JSONDecoder()

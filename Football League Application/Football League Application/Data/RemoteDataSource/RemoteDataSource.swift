@@ -8,25 +8,20 @@
 import Foundation
 import RxSwift
 
-class RemoteDataSoure: CompetitionsService, CompetitionsDetailsService, MatchInfoService {
-    let apiClient: APIClient
-    
-    init(networkService: APIClient){
-        self.apiClient = networkService
-    }
+class RemoteDataSoure: APIClient, CompetitionsService, CompetitionsDetailsService, MatchInfoService {
     
     func getCompetitions() -> Observable<CompetitionResponse> {
         print("Performing get competitions")
-        return apiClient.performRequest(route: .competitions)
+        return performRequest(route: .competitions)
     }
     
     func getCompetitionsDetails(by id: Int) -> RxSwift.Observable<CompetitionsDetailsResponse> {
         print("Performing get Competitiong Details ...")
-        return apiClient.performRequest(route: .competitionDetails(competitionId: id))
+        return performRequest(route: .competitionDetails(competitionId: id))
     }
     
-    func getMatchInfo(by id: Int) -> Observable<MatchInfoResponse> {
+    func getMatchInfo(by id: Int) -> Observable<Match> {
         print("Performing get Match Info ...")
-        return apiClient.performRequest(route: .matches(matchId: id))
+        return performRequest(route: .matches(matchId: id))
     }
 }
