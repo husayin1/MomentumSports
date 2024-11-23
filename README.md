@@ -20,6 +20,8 @@ The Football League application allows users to explore football competitions, v
   - The number of available seasons.
   - The current match day.
   - The league name, including its full name and code.
+  
+![All Competitions Screen](firstScreen.png)
 
 #### 2. Competition Details Screen
 - Displays detailed information about the selected competition, including all possible available details.
@@ -27,9 +29,13 @@ The Football League application allows users to explore football competitions, v
   - Match status.
   - Home team name and short name.
   - Away team name and short name.
+    
+![Competitions Details Scree ](secondScreen.png)
 
 #### 3. Match Details Screen
 - A scrolled view displaying detailed information about a selected match, including all available details.
+  
+![Match Info Screen](thirdScreen.png)
 
 ## Technologies Used
 - **Programming Language**: Swift
@@ -43,9 +49,6 @@ The Football League application allows users to explore football competitions, v
 - The application caches the data retrieved from the API. When there is no internet connection, the app will display the cached data to ensure that the user experience remains uninterrupted.
 - Cached data is automatically updated when the internet connection is restored.
 
-![All Competitions Screen](firstScreen.png)
-![Competitions Details Scree ](secondScreen.png)
-![Match Info Screen](thirdScreen.png)
 
 
 
